@@ -10,11 +10,11 @@ This repository is designed to demonstrate **end-to-end delivery pipelines**, **
 
 | Folder/Module                | Description                                                                 |
 |-----------------------------|-----------------------------------------------------------------------------|
-| `redis-user-cache-sync/`    | Spring Boot microservice with Redis-based caching, pub-sub messaging, and DB sync logic |
-| `docker-springboot/`        | Standalone Spring Boot application containerized with Docker and Docker Compose |
-| `terraform-aws-infra/`      | Terraform scripts for provisioning core AWS infrastructure — VPC, ECS, ECR, ALB, IAM, CloudWatch, etc. |
+| `Redis_with_Java-SpringBoot/`    | Spring Boot microservice with Redis-based caching, pub-sub messaging, and DB sync logic |
+| `Containerization/`        | Standalone Spring Boot application containerized with Docker and Docker Compose |
+| `AWS_with_Terraform_IAC/`      | Terraform scripts for provisioning core AWS infrastructure — VPC, ECS, ECR, ALB, IAM, CloudWatch, etc. |
 | `aws-automation-scripts/`   | Shell scripts to automate AWS resource management (e.g., login, tagging, ECR push) |
-| `jenkins-pipeline-scripts/` | Declarative Jenkins pipeline for provisioning, deploying, and tearing down infra with Terraform and Docker |
+| `Jenkins_Script/` | Declarative Jenkins pipeline for provisioning, deploying, and tearing down infra with Terraform and Docker |
 
 ---
 
@@ -86,8 +86,9 @@ cd redis-user-cache-sync
 
 - 📧 **Email**: [moharnpaatil999@gmail.com](mailto:moharnpaatil999@gmail.com)
 - 💼 **LinkedIn**: [linkedin.com/in/999-moharn-paatil](https://www.linkedin.com/in/999-moharn-paatil)
-- 📄 **Resume**: [Request via Gmail](https://mail.google.com/mail/?view=cm&fs=1&to=moharnpaatil999@gmail.com&su=Request%20for%20Resume%20via%20GitHub&body=Hi%20Moharn%2C%0A%0AI%20found%20your%20GitHub%20project%20really%20impressive%20and%20would%20love%20to%20connect.%20Could%20you%20please%20share%20your%20resume%3F%0A%0ARegards%2C
+- 📄 **Resume**: [Request via Gmail](https://mail.google.com/mail/?view=cm&fs=1&to=moharnpaatil999@gmail.com&su=Request%20for%20Resume%20via%20GitHub&body=Hi%20Moharn%2C%0A%0AI%20found%20your%20GitHub%20project%20really%20impressive%20and%20would%20love%20to%20connect.%20Could%20you%20please%20share%20your%20resume%3F%0A%0ARegards%2C%0A%5BYour%20Name%5D)
 - 🌐 **Portfolio Repo**: [github.com/MohanVPatil/springboot-cloud-infra](https://github.com/MohanVPatil/springboot-cloud-infra)
+
 
 
 ## Final Note
