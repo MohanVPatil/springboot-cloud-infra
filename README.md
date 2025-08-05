@@ -1,71 +1,142 @@
-# 🌐 springboot-cloud-infra
+# **Redis User Profile Caching Service (Java \+ Spring Boot)**
 
-A professionally curated monorepo showcasing production-grade backend development and DevOps automation skills using **Java, Spring Boot, Redis, Docker, Terraform, AWS, and Jenkins**.  
-This repository reflects real-world implementation of microservices, caching strategies, infrastructure-as-code, and CI/CD pipelines — demonstrating end-to-end expertise from code to cloud.
+A **Spring Boot microservice** for **User Profile Caching with Redis** featuring **cache synchronization**, **pub-sub messaging**, and **event-driven design**. The project integrates **PostgreSQL** as the persistent database and demonstrates best practices in caching, key expiration handling, and clean architecture.
 
----
+## **Project Overview**
 
-## 📁 Repository Structure
+This project demonstrates:
 
-| Folder                      | Description                                                                 |
-|----------------------------|-----------------------------------------------------------------------------|
-| `redis-user-cache-sync/`   | Microservice with Redis-based caching, pub-sub messaging, and DB sync logic |
-| `docker-springboot/`       | Spring Boot service containerized with Docker and Docker Compose setup      |
-| `terraform-aws-infra/`     | Terraform scripts to provision AWS infrastructure (ECS, S3, IAM, etc.)      |
-| `aws-automation-scripts/`  | Shell/CLI scripts for automating AWS resource management                    |
-| `jenkins-pipeline-scripts/`| Declarative Jenkins pipelines for CI/CD automation with Docker and ECS       |
+* Managing user profiles via RESTful APIs.
 
----
+* Redis caching for performance optimization.
 
-## 🛠️ Technologies & Tools
+* **Pub/Sub messaging with Redis** for real-time updates.
 
-- **Backend**: Java 17, Spring Boot, Spring Data JPA, Hibernate, Liquibase  
-- **Caching**: Redis, Pub/Sub Messaging, RedisTemplate  
-- **DevOps & Automation**: Docker, Terraform, Jenkins, GitHub Actions  
-- **Cloud**: AWS ECS (Fargate), ECR, S3, IAM, CloudWatch, SES  
-- **CI/CD**: Jenkins Pipelines, Docker Build & Push, AWS Deployment  
-- **Misc**: Postman, STS/IntelliJ, Linux (Ubuntu)
+* Event-driven architecture with **publishers and listeners**.
 
----
+* Automatic cache-to-DB synchronization after key expiry.
 
-## 🚀 Highlights
+* Clean layered Spring Boot architecture (Controller → Service → Repository).
 
-- ✅ Clean code architecture with layered design (Controller → Service → Repository)  
-- ✅ Real-time Redis cache sync with delayed DB writes (write-behind)  
-- ✅ Publisher–Subscriber pattern using Redis Pub/Sub for event communication  
-- ✅ Infrastructure provisioning using Terraform (modular, reusable scripts)  
-- ✅ Automated CI/CD pipelines from Git to AWS ECS using Jenkins  
-- ✅ Logging, monitoring, and cost-optimized deployments on AWS  
+##  **Project Structure**
 
----
+`src/`  
+ `└── main/`  
+     `└── java/`  
+         `└── com.coder.learn/`  
+             `├── config/                # Configuration (Redis, Jackson)`  
+             `├── controller/            # REST APIs for User management`  
+             `├── dto/                   # Data Transfer Objects`  
+             `├── entity/            # JPA Entities (User, UserAccess, Logs)`  
+             `├── event/                 # Domain Events`  
+             `├── listener/         # Redis Key Expiration, Pub/Sub Consumer`  
+             `├── publisher/             # Redis Pub/Sub Publisher`  
+             `├── repository/            # Spring Data JPA Repositories`  
+             `└── scheduler/             # Cache Refresh Schedulers`  
+ `└── resources/`  
+     `└── application.yml               # DB & Redis configuration`
 
-## 📌 Purpose & Showcase
+## **Technologies Used**
 
-This repository is designed to serve as a **portfolio-quality showcase** of my ability to:
+* Java 17
 
-- Build scalable, secure, and maintainable Java microservices
-- Implement modern DevOps workflows and cloud deployment strategies
-- Apply best practices in containerization, automation, and infrastructure management
-- Demonstrate full-stack ownership from coding to cloud operations
+* Spring Boot
 
----
+* Spring Data JPA (Hibernate)
 
-## 📂 Usage
+* PostgreSQL
 
-Each subfolder contains:
+* Redis (Cache & Pub/Sub Messaging)
 
-- A self-contained project or automation script
-- Its own `README.md` for setup instructions and explanations
-- Reusable, modular code and configurations
+* Event Listeners & Publishers
 
-Explore each section to understand the applied concepts and technologies in depth.
+* GitHub
 
----
+## **Key Features**
 
-## 🔗 Connect With Me
+- **Create, Update, Delete User via REST APIs**  
+- **Redis Cache synchronization with PostgreSQL**  
+- **Pub/Sub messaging pattern with Redis channels**  
+- **Redis Key Expiration Listener for cache invalidation & DB sync**  
+-  **Clean code with DTO mapping and layered exception handling**  
+- **Spring Data JPA for DB operations**
 
-- 💼 LinkedIn: https://www.linkedin.com/in/999-moharn-paatil
-- 📁 Resume: Available on request  
-- 💻 Portfolio Project: [springboot-cloud-infra](https://github.com/MohanVPatil/springboot-cloud-infra)
+## **API Endpoints**
 
----
+|  |  |  |
+| :---- | :---- | :---- |
+| **Endpoint** | **Method** | **Description** |
+| `/users/{id}` | GET | Fetch user details by user ID |
+| `/users/addUser` | POST | Add a new user to the database |
+| `/users/editUser/{id}` | PUT | Update user details by ID |
+| `/users/deleteUser/{id}` | DELETE | Delete a user by ID |
+| `/users/addUser/full-info` | POST | Save full user info (User, Access, ActivityLog) into DB and Redis cache |
+| `/users/addOrUpdateUser` | POST | Sync user from Redis cache to DB or insert if not present |
+
+## **How to Run Locally**
+
+### **1\. Prerequisites:**
+
+* Java 17
+
+* PostgreSQL (local or remote)
+
+* Redis server (local or remote)
+
+### **2\. Clone the Repository**
+
+`git clone https://github.com/MohanVPatil/springboot-cloud-infra.git`
+
+`cd springboot-cloud-infra`
+
+### **3\. Configure `application.yml`**
+
+Update:
+
+* PostgreSQL DB URL, username, password
+
+* Redis host & port
+
+### **4\. Run the Application**
+
+`./mvnw spring-boot:run`
+
+### **5\. Test APIs**
+
+* Use Postman or Curl to test API endpoints.
+
+* Redis Insight tool to monitor cache entries & pub-sub channels.
+
+## 
+
+## **Core Functionalities Explained**
+
+* **Redis Cache Integration**:
+
+  * User data is cached for faster retrieval.
+
+  * Cache keys have TTL (time to live) to ensure data consistency.
+
+* **Key Expiration Listener**:
+
+  * When cache keys expire, listener updates data into PostgreSQL automatically.
+
+* **Pub/Sub Messaging**:
+
+  * Publisher sends cache update messages.
+
+  * Subscriber listens and performs actions (invalidate, refresh, etc.).
+
+* **Layered Spring Boot Architecture**:
+
+  * Controller → Service → Repository → DB
+
+  * DTO mapping for cleaner request/response.
+
+## **License**
+
+Open-source for learning & demonstration purposes.
+
+[^1]
+
+[^1]:  **Redis User Profile Caching Service-By-Moharn\_Paatil**
