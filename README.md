@@ -1,20 +1,18 @@
 # springboot-cloud-infra
 
-A production-grade, monorepo portfolio that showcases real-world **Java backend development** combined with **DevOps automation**, built using **Spring Boot, Redis, Docker, Terraform, AWS (ECS), and Jenkins**.
-
-This repository is designed to demonstrate **end-to-end delivery pipelines**, **microservice containerization**, **infrastructure as code**, and **cloud-native deployments** — reflecting full-stack ownership from code to cloud.
+A **production-grade monorepo portfolio** demonstrating practical expertise in **Java backend development** and **DevOps automation**. Built using modern technologies like **Spring Boot, Redis, Docker, Terraform, AWS (ECS)**, and **Jenkins**, this repository reflects full-stack engineering capabilities from coding to cloud deployment.
 
 ---
 
 ## Repository Structure
 
-| Folder/Module                | Description                                                                 |
-|-----------------------------|-----------------------------------------------------------------------------|
-| `Redis_with_Java-SpringBoot/`    | Spring Boot microservice with Redis-based caching, pub-sub messaging, and DB sync logic |
-| `Containerization/`        | Standalone Spring Boot application containerized with Docker and Docker Compose |
-| `AWS_with_Terraform_IAC/`      | Terraform scripts for provisioning core AWS infrastructure — VPC, ECS, ECR, ALB, IAM, CloudWatch, etc. |
-| `aws-automation-scripts/`   | Shell scripts to automate AWS resource management (e.g., login, tagging, ECR push) |
-| `Jenkins_Script/` | Declarative Jenkins pipeline for provisioning, deploying, and tearing down infra with Terraform and Docker |
+| Folder/Module                   | Description                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|
+| `Redis_with_Java-SpringBoot/`  | Spring Boot microservice with Redis caching, pub-sub messaging, and DB sync |
+| `Containerization/`            | Standalone Spring Boot app containerized with Docker & Compose              |
+| `AWS_with_Terraform_IAC/`      | Terraform scripts for AWS infra — ECS, ECR, ALB, IAM, CloudWatch, etc.      |
+| `aws-automation-scripts/`      | Shell scripts for ECR push, AWS login, tagging automation                   |
+| `Jenkins_Script/`              | Declarative Jenkins pipeline to provision and deploy via Terraform & Docker |
 
 ---
 
@@ -22,42 +20,42 @@ This repository is designed to demonstrate **end-to-end delivery pipelines**, **
 
 **Languages & Frameworks**  
 - Java 17, Spring Boot, Spring Data JPA, Hibernate, Liquibase  
-- Redis (Caching, Pub/Sub), Maven  
+- Redis (Write-behind caching, Pub/Sub), Maven  
 
 **Infrastructure & Cloud**  
-- Terraform (modular IaC), AWS ECS Fargate, ECR, S3, CloudWatch, IAM, VPC  
+- Terraform (modular IaC), AWS ECS Fargate, ECR, S3, IAM, CloudWatch  
 - Docker, Docker Compose  
 
 **CI/CD & DevOps**  
-- Jenkins (Declarative Pipeline), GitHub Actions (optional extension)  
-- AWS CLI, CloudWatch Logs, Git  
+- Jenkins (declarative pipeline), GitHub Actions (optional)  
+- AWS CLI, Git, CloudWatch Logs  
 
 **Utilities & IDEs**  
-- Postman, IntelliJ IDEA / Spring Tool Suite (STS), Ubuntu Terminal  
+- Postman, IntelliJ IDEA / Spring Tool Suite, Ubuntu Terminal  
 
 ---
 
 ## Key Highlights
 
-✅ **Spring Boot Microservice** with clean layered architecture (Controller → Service → Repository)  
-✅ **Redis-backed write-behind caching** mechanism with async DB persistence  
-✅ **Redis Pub/Sub** for decoupled communication across distributed services  
-✅ **Infrastructure as Code (IaC)** using Terraform with modular, reusable structure  
-✅ **End-to-end CI/CD** using Jenkins to build Docker images, push to ECR, and deploy on ECS Fargate  
-✅ **Automated logging and monitoring** using CloudWatch for ECS task containers  
-✅ **Support for private and public ALBs**, multiple target groups, and environment variables injected into containers
+- ✅ Layered Spring Boot architecture (Controller → Service → Repository)
+- ✅ Redis-powered caching with asynchronous DB persistence
+- ✅ Redis Pub/Sub for decoupled real-time message exchange
+- ✅ Modular Terraform IaC for scalable AWS infrastructure provisioning
+- ✅ CI/CD pipeline with Docker image build, ECR push, and ECS Fargate deployment
+- ✅ Monitoring and alerting with AWS CloudWatch integration
+- ✅ Environment variable injection and multi-target ALB setup
 
 ---
 
 ## Objective
 
-This monorepo serves as a **portfolio-quality showcase** demonstrating:
+This monorepo serves as a **portfolio-quality showcase** of my:
 
-- Backend API development using Java + Spring Boot  
-- Advanced caching, messaging, and async data flows  
-- DevOps maturity through Infrastructure as Code and CI/CD pipelines  
-- Real-world cloud-native deployments using AWS ECS, ECR, and Terraform  
-- Practical scenarios like microservice communication, container orchestration, and log aggregation
+- Proficiency in **Java-based backend development**
+- Experience with **Redis caching**, asynchronous data flows, and pub-sub systems
+- Skill in **Infrastructure as Code** using Terraform
+- Ability to implement **CI/CD pipelines** for cloud-native deployments
+- Focus on production-ready, modular, and maintainable architecture
 
 ---
 
@@ -65,47 +63,62 @@ This monorepo serves as a **portfolio-quality showcase** demonstrating:
 
 Each folder is a self-contained module with:
 
-- Project-specific `README.md` containing build/run instructions  
-- Modular code and configuration files  
-- Linked pipelines, Dockerfiles, or Terraform modules for easy integration
+- Setup steps inside its own `README.md`
+- Independent configs, build files, and Docker/Terraform pipelines
+- Ready-to-run samples for testing and exploration
 
-> Navigate to each folder to explore the detailed use case it solves, and understand the best practices adopted for scalable deployments.
+> Navigate to each folder to explore the respective domain and its use-case implementation.
 
 ---
+## Local Setup
 
-## Test & Run Locally
-
-For services like `redis-user-cache-sync` or `docker-springboot`:
+Example for running Redis-based microservice:
 
 ```bash
-cd redis-user-cache-sync
+cd Redis_with_Java-SpringBoot
 ./mvnw spring-boot:run
 
 
-## Connect With Me
+For Jenkins Pipelines:
 
-- 📧 **Email**: [moharnpaatil999@gmail.com](mailto:moharnpaatil999@gmail.com)
-- 💼 **LinkedIn**: [linkedin.com/in/999-moharn-paatil](https://www.linkedin.com/in/999-moharn-paatil)
-- 📄 **Resume**: [Request via Gmail](https://mail.google.com/mail/?view=cm&fs=1&to=moharnpaatil999@gmail.com&su=Request%20for%20Resume%20via%20GitHub&body=Hi%20Moharn%2C%0A%0AI%20found%20your%20GitHub%20project%20really%20impressive%20and%20would%20love%20to%20connect.%20Could%20you%20please%20share%20your%20resume%3F%0A%0ARegards%2C%0A%5BYour%20Name%5D)
-- 🌐 **Portfolio Repo**: [github.com/MohanVPatil/springboot-cloud-infra](https://github.com/MohanVPatil/springboot-cloud-infra)
-
-
+Point Jenkins to Jenkins_Script/Jenkinsfile
+Use ACTION parameter to control provision or destroy
 
 ## Final Note
 
-This repository is thoughtfully crafted for **employers, recruiters, and technical decision-makers** who are evaluating my capabilities in:
+This repository is crafted with the intention of helping recruiters, employers, and technical leaders assess my real-world expertise in:
 
-- **Backend Java Development**
-- **AWS Cloud & DevOps Engineering**
-- **Microservices Design & Architecture**
-- **CI/CD Automation and Infrastructure as Code**
+-  Java Backend Engineering
+-  AWS Cloud & DevOps Engineering
+-  Microservices Architecture & Caching
+-  CI/CD Automation and Infrastructure as Code
 
-If you're reviewing my profile, this project is intended to:
+If you're evaluating my profile, this project demonstrates:
 
-- ✅ Demonstrate my ability to deliver **production-grade, scalable, and cloud-native** solutions  
-- ✅ Reflect my commitment to **clean code, modular design, and DevOps best practices**  
-- ✅ Showcase a strong **automation-first mindset** and hands-on expertise in **infrastructure provisioning, container orchestration, and cloud deployments**
+- My ability to build secure, scalable, and cloud-native backend systems
+- A strong focus on DevOps automation, clean code, and operational excellence
+- Hands-on experience with AWS services like ECS Fargate, ECR, S3, IAM, CloudWatch, and SES
+- End-to-end ownership from design and development to infrastructure provisioning and production deployment
 
-I invite you to explore this repository as a **comprehensive representation of my skills, experience, and engineering mindset**.
+Thank you for visiting!  
+Feel free to connect, explore the code, or request my resume via the links above.
+
+---
+## 📝 TODO
+The following improvements and feature extensions are planned for future iterations:
+
+- OAuth2 / JWT-based Authentication & Authorization : for securing REST APIs  
+- Spring Cloud Gateway : setup for service routing and API gateway layer   
+- Auto-scaling ECS services : using AWS Application Auto Scaling policies  
+- GitHub Actions CI/CD integration : as an alternative to Jenkins pipelines  
+- Helm Charts : for managing Kubernetes-based deployment in future (EKS)
+
+> Have suggestions or feedback? Feel free to drop a message on https://www.linkedin.com/in/999-moharn-paatil
 
 
+## Connect With Me
+- 📧 Email: moharnpaatil999@gmail.com
+- 💼 LinkedIn: https://www.linkedin.com/in/999-moharn-paatil
+- 🌐 Portfolio Repo: https://github.com/MohanVPatil/springboot-cloud-infra
+
+---
