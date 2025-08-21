@@ -104,7 +104,11 @@ Thank you for visiting!
 Feel free to connect, explore the code, or request my resume via the links above.
 
 ---
+<<<<<<< HEAD
 ## TODO
+=======
+## 📝 TODO
+>>>>>>> ab7dfa54c49421d5ad9effaab283dfe4649c4c35
 The following improvements and feature extensions are planned for future iterations:
 
 - OAuth2 / JWT-based Authentication & Authorization : for securing REST APIs  
