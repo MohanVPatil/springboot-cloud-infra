@@ -1,0 +1,11 @@
+Client Request
+     ↓
+Spring Boot Controller
+     ↓
+Check Redis Cache
+     ↓          ↓
+Cache Hit     Cache Miss
+     ↓          ↓
+   Return    Query Postgres (via JPA)
+     ↑          ↓
+   Done     Save to Redis
